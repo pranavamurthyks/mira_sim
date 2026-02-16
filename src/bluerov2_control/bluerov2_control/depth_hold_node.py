@@ -165,6 +165,11 @@ class DepthYawVisionController(Node):
 
                         else:
                             heave_text = "HOLD"
+                        
+                        # Clamp target depth to maximum 2.5 meters
+                        if self.target_depth > 2.5:
+                            self.target_depth = 2.5
+
 
                         # ---------------- SWAY (PROPORTIONAL) ----------------
                         offset_x = dock_center_x - frame_center_x
@@ -206,6 +211,13 @@ class DepthYawVisionController(Node):
                     1,
                     (0, 0, 255), 2)
 
+        cv2.putText(frame, f"current_depth: {self.current_depth}",
+                    (40, 150),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    1,
+                    (0, 0, 255), 2)
+        
+        
         cv2.imshow("Dock Alignment", frame)
         cv2.waitKey(1)
 
