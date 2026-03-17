@@ -346,7 +346,7 @@
 		
 		<sensor name="camera_bottom" rate="10.0" type="camera">
 			<specs resolution_x="800" resolution_y="600" horizontal_fov="55.0"/>
-			<origin xyz="0.3 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<origin xyz="0.3 0.0 0.0" rpy="0.0 0.0 1.5708"/>
 			<link name="base_link"/>
 			<ros_publisher topic="/bluerov2/camera_bottom"/>
 		</sensor> 
